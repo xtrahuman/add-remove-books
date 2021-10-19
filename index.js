@@ -11,10 +11,11 @@ function getLocalStorage() {
   }
   
 
-function filterbookhtml(allbook,index) {
-      allbook.splice(index,1)
-   displayBooks(allbook)
-}
+  function filterbookhtml(allbook,index) {
+    allbook.splice(index,1)
+ 
+    displayBooks(allbook)
+ }
 
 const displayBooks = (bookoutput) => {
   
