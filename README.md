@@ -22,7 +22,7 @@
 ## project link
 click on the website to view project
 
-- link to website: [website link](https://xtrahuman.github.io/capstone-module1/)
+- link to website: [website link](https://xtrahuman.github.io/add-remove-books/)
 
 ## Author 1
 
