@@ -1,0 +1,19 @@
+.awesome-books {
+  margin-left: 20px;
+}
+
+.author-title .btn {
+  border: 1px solid black;
+  padding: 0 5px;
+  background-color: #f7f7f7;
+}
+
+.form .btn {
+  border: 1px solid black;
+  padding: 0 5px;
+  background-color: #f7f7f7;
+}
+
+.form ul li {
+  margin-bottom: 20px;
+}
