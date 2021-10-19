@@ -12,8 +12,8 @@ function getLocalStorage() {
   
 
 function filterbookhtml(allbook,index) {
-let newbook = allbook.splice(index,1)
-   displayBooks(newbook)
+      allbook.splice(index,1)
+   displayBooks(allbook)
 }
 
 const displayBooks = (bookoutput) => {
