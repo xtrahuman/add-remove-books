@@ -110,7 +110,7 @@ const updateDate = () => {
     const today = new Date()
     today.toLocaleString('default', { month: 'long' })
     let month = today.toLocaleString('default', { month: 'long' })
-    let date = month +' '+today.getFullYear()+' '+today.getDate();
+    let date = month +' '+today.getDate()+' '+today.getFullYear();
     let hours = today.getHours()
     let time = hours + ":" + today.getMinutes() + ":" + today.getSeconds();
     let range = hours >= 12 ? 'pm' : 'am';
