@@ -8,6 +8,7 @@ const contactUs = document.getElementById('contact-nav')
 const awesomePage = document.querySelector('.awesome-page');
 const formSection = document.querySelector('.form-sect');
 const contactSection = document.querySelector('.contact-info');
+const newDate = document.querySelector('.new-date')
 class Bookinfo {
   constructor(author, title) {
     this.author = author;
@@ -105,4 +106,21 @@ const showContact = () => {
 }
 
 contactUs.addEventListener('click',showContact)
+const updateDate = () => {
+    const today = new Date()
+    today.toLocaleString('default', { month: 'long' })
+    let month = today.toLocaleString('default', { month: 'long' })
+    let date = month +' '+today.getFullYear()+' '+today.getDate();
+    let hours = today.getHours()
+    let time = hours + ":" + today.getMinutes() + ":" + today.getSeconds();
+    let range = hours >= 12 ? 'pm' : 'am';
+    let currentDate = date +' '+ time + ' ' +range
+    newDate.textContent = currentDate;
+    setTimeout(updateDate, 1000);
+}
+
+
+window.addEventListener('DOMContentLoaded', updateDate)
+
+
 

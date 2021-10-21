@@ -12,6 +12,9 @@
 body {
   background-color: #eff6fb;
   color: #081621;
+  font-family: "Roboto", sans-serif;
+  position: relative;
+  height: 100vh;
 }
 
 header {
@@ -20,6 +23,7 @@ header {
 }
 
 .navbar {
+  position: relative;
   display: flex;
   background-color: #fff;
   margin-top: 20px;
@@ -56,6 +60,13 @@ header {
   padding-right: 0;
 }
 
+.date-time {
+  position: absolute;
+  right: 0;
+  bottom: -40px;
+  font-size: 10px;
+}
+
 main {
   display: flex;
   flex-direction: column;
@@ -83,7 +94,7 @@ button {
 .book-section {
   background-color: #fff;
   border-radius: 5px;
-  margin: 30px 0;
+  margin: 40px 0;
   filter: drop-shadow(0 8px 16px rgb(74, 156, 211, 0.48));
 }
 
@@ -136,13 +147,11 @@ button:hover.remove {
 
 .form .btn {
   border-radius: 5px;
-  padding: 5px 10px;
+  padding: 10px 15px;
   font-size: 14px;
   background: #2e76cf;
   color: #fff;
   margin-top: 20px;
-  display: flex;
-  justify-self: right;
 }
 
 .button-flex {
@@ -163,17 +172,18 @@ button:hover.add {
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 100%;
 }
 
 .form ul li {
   display: flex;
   flex-direction: column;
+  width: 80%;
 }
 
 .form .title-section,
 .form .author-section {
-  height: 32px;
-  width: 200px;
+  height: 36px;
   margin-top: 5px;
 }
 
@@ -189,7 +199,7 @@ input[type="text"] {
 
 .contact-info h2 {
   text-align: center;
-  margin-bottom: 30px;
+  margin-bottom: 40px;
 }
 
 .contact-info p {
@@ -198,7 +208,11 @@ input[type="text"] {
 
 .contact-info ul {
   margin: 20px;
-  margin-left: 30px;
+  margin-left: 15px;
+}
+
+.contact-info ul li {
+  font-size: 14px;
 }
 
 .show {
@@ -207,6 +221,32 @@ input[type="text"] {
 
 .close {
   display: none;
+}
+
+#Author {
+  width: 100%;
+}
+
+#Title {
+  width: 100%;
+}
+
+.footer {
+  position: absolute;
+  display: flex;
+  background-color: #fff;
+  margin-bottom: 20px;
+  padding: 20px 0;
+  border-radius: 5px;
+  align-items: center;
+  bottom: 0;
+}
+
+.footer p {
+  margin: 0;
+  margin-left: 30px;
+  font-size: 14px;
+  font-weight: 500;
 }
 
 @media all and (min-width: 768px) {
@@ -231,14 +271,29 @@ input[type="text"] {
 
   .navbar ul li {
     border-right: 1px solid #272a31;
-    padding: 0 10px;
+    padding: 0 20px;
+  }
+
+  .date-time {
+    font-size: 12px;
   }
 
   .form .title-section,
   .form .author-section {
-    position: relative;
     margin-top: 10px;
-    height: 32px;
-    width: 350px;
+    height: 48px;
+  }
+
+  .form ul li {
+    width: 60%;
+  }
+
+  .contact-info p {
+    margin-bottom: 0;
+    margin-left: 40px;
+  }
+
+  .contact-info ul {
+    margin-left: 80px;
   }
 }
