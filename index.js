@@ -26,7 +26,7 @@ class Bookinfo {
     displayBooks = (bookoutput) => {
       const allbook = bookoutput.map((book) => `<div class="author-title">
       <div class="d-flex author-title-name">
-    <p>${book.author} by ${book.title}</p>
+    <p>"${book.title}" by ${book.author}</p>
     </div>
     <button type="button"  class="remove btn" >remove</button>
    
