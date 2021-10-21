@@ -1,64 +1,108 @@
 const bookSection = document.querySelector('.book-section');
-const bookInput = document.querySelector('.add');
+const bookInput = document.querySelector('.form');
 const authorInput = document.getElementById('Author');
 const titleInput = document.getElementById('Title');
-
-function getLocalStorage() {
-  return localStorage.getItem('bookar') ? JSON.parse(localStorage.getItem('bookar')) : [];
-}
-
-const displayBooks = (bookoutput) => {
-  const allbook = bookoutput.map((book) => `<div class="author-title">
-    <p>${book.author}</p>
-    <p>${book.title}</p>
-    <button type="button"  class="remove" class="btn">remove</button>
-    <hr>
-</div>`);
-
-  bookSection.innerHTML = allbook.join('');
-
-  const removebtn = document.querySelectorAll('.remove');
-
-  function deleteBookStorage(index) {
-    const filteredbook = bookoutput.filter((indext) => indext !== bookoutput[index]);
-    localStorage.setItem('bookar', JSON.stringify(filteredbook));
+const list = document.getElementById('list-nav')
+const addNew = document.getElementById('add-nav')
+const contactUs = document.getElementById('contact-nav')
+const awesomePage = document.querySelector('.awesome-page');
+const formSection = document.querySelector('.form-sect');
+const contactSection = document.querySelector('.contact-info');
+class Bookinfo {
+  constructor(author, title) {
+    this.author = author;
+    this.title = title;
   }
 
-  removebtn.forEach((button, index) => {
-    button.addEventListener('click', (e) => {
-      e.preventDefault();
-      deleteBookStorage(index);
-      /* eslint-disable */
-      filterbookhtml(bookoutput, index);
+    getLocalStorage = () => (localStorage.getItem('bookar') ? JSON.parse(localStorage.getItem('bookar')) : []);
+
+    FilterBookHtml = (allbook, index) => {
+      allbook.splice(index, 1);
+      this.displayBooks(allbook);
+      localStorage.setItem('bookar', JSON.stringify(allbook));
+    };
+
+    displayBooks = (bookoutput) => {
+      const allbook = bookoutput.map((book) => `<div class="author-title">
+      <div class="d-flex author-title-name">
+    <p>${book.author} by ${book.title}</p>
+    </div>
+    <button type="button"  class="remove btn" >remove</button>
+   
+</div>`);
+
+      bookSection.innerHTML = allbook.join('');
+
+      const removebtn = document.querySelectorAll('.remove');
+
+      //   function deleteBookStorage(index) {
+      //     const filteredbook = bookoutput.filter((indext) => indext !== bookoutput[index]);
+      //     localStorage.setItem('bookar', JSON.stringify(filteredbook));
+      //   }
+
+      removebtn.forEach((button, index) => {
+        button.addEventListener('click', (e) => {
+          e.preventDefault();
+          this.FilterBookHtml(bookoutput, index);
+          //   deleteBookStorage(index);
+          /* eslint-disable */
+   
       /* eslint-enable */
-    });
+        });
+      });
+
+      authorInput.value = '';
+      titleInput.value = '';
+    };
+
+  // function filterbookhtml(allbook, index) {
+  //   allbook.splice(index, 1);
+
+  //   displayBooks(allbook);
+  // }
+}
+window.addEventListener('DOMContentLoaded', () => {
+  let Booky = new Bookinfo(authorInput.value, titleInput.value);
+
+  Booky.displayBooks(Booky.getLocalStorage());
+  bookInput.addEventListener('submit', () => {
+    //   e.preventDefault();
+
+    //   const bookinfo = {
+    //     author: authorInput.value,
+    //     title: titleInput.value,
+    //   };
+
+    Booky = new Bookinfo(authorInput.value, titleInput.value);
+    const bookar = Booky.getLocalStorage();
+    bookar.push(Booky);
+    localStorage.setItem('bookar', JSON.stringify(bookar));
+
+    Booky.displayBooks(Booky.getLocalStorage());
   });
+});
 
-  authorInput.value = '';
-  titleInput.value = '';
-};
-
-function filterbookhtml(allbook, index) {
-  allbook.splice(index, 1);
-
-  displayBooks(allbook);
+const showList = () => {
+    awesomePage.classList.remove('close')
+    formSection.classList.remove('show')
+    contactSection.classList.remove('show')
 }
 
-window.addEventListener('DOMContentLoaded', () => {
-  displayBooks(getLocalStorage());
-});
+list.addEventListener('click',showList)
 
-bookInput.addEventListener('click', (e) => {
-  e.preventDefault();
+const showAddNew = () => {
+    awesomePage.classList.add('close')
+    formSection.classList.add('show')
+    contactSection.classList.remove('show')
+}
 
-  const bookinfo = {
-    author: authorInput.value,
-    title: titleInput.value,
-  };
+addNew.addEventListener('click',showAddNew)
 
-  const bookar = getLocalStorage();
-  bookar.push(bookinfo);
-  localStorage.setItem('bookar', JSON.stringify(bookar));
+const showContact = () => {
+    awesomePage.classList.add('close')
+    formSection.classList.remove('show')
+    contactSection.classList.add('show')
+}
 
-  displayBooks(getLocalStorage());
-});
+contactUs.addEventListener('click',showContact)
+

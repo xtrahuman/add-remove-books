@@ -14,37 +14,73 @@
 </head>
 
 <body>
+    <header>
+        <div class="navbar container">
+            <a href="index.html">awesome books</a>
+            <nav>
+                <ul class="d-flex list-unstyled">
+                    <li>
+                        <a href="#list" id="list-nav">list</a>
+                    </li>
+                    <li>
+                        <a href="#form" id="add-nav">add new</a>
+                    </li>
+                    <li>
+                        <a href="#contact" id="contact-nav">contact</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
     <main>
-        <section class="awesome-books">
-            <h1>Awesome Books</h1>
-            <div class="book-section">
-    
-            </div>
-            <div class="form-sect">
+        <div class="awesome-books container">
+            <section class="awesome-page">
+                <h1>Awesome Books</h1>
+                <div class="book-section">
+
+                </div>
+            </section>
+
+            <section class="form-sect justify-content-center">
+                <h2>Add a new book</h2>
                 <form class="form">
-                    <ul class="list-unstyled" >
+                    <ul class="list-unstyled">
                         <li>
                             <label for="Title"></label>
                             <input type="text" id="Title" name="title" class="title-section" maxlength="30"
                                 placeholder="title" required>
-    
+
                         </li>
                         <li>
                             <label for="Author"></label>
                             <input type="text" id="Author" name="author" class="author-section" placeholder="author"
                                 required>
                         </li>
-    
+
                         <li>
-                            <button type="submit" class="btn add">Add</button>
+                            <div class="button-flex">
+                                <button type="submit" class="btn add">Add</button>
+                            </div>
+
                         </li>
-    
+
                     </ul>
                 </form>
-            </div>
-        </section>
+            </section>
+
+            <section class="contact-info">
+                <h2>contact information</h2>
+                <p>Do you have any questions or you just wnt to say "Hello"?</p>
+                <p>You can reach out to us via</p>
+                <ul>
+                    <li>Our email: okpara_tochukwu@yahoo.com</li>
+                    <li>Our phone number: 123456789</li>
+                    <li>Our address: surulere, lagos, Nigeria</li>
+                </ul>
+            </section>
+        </div>
     </main>
-    
+
     <script src="index.js"></script>
 </body>
 
