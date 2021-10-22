@@ -55,6 +55,16 @@ header {
   padding: 0 5px;
 }
 
+.form ul li {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+}
+
+.contact-info ul li {
+  font-size: 14px;
+}
+
 .navbar ul li:last-child {
   border-right: none;
   padding-right: 0;
@@ -110,13 +120,12 @@ button {
 }
 
 .author-title-name p {
-  margin-bottom: 0px;
+  margin-bottom: 0;
   margin-left: 20px;
   font-size: 14px;
 }
 
 .author-title .remove {
-  /* border: 1px solid black; */
   border-radius: 5px;
   padding: 5px 10px;
   background-color: #cf2e2e;
@@ -175,12 +184,6 @@ button:hover.add {
   width: 100%;
 }
 
-.form ul li {
-  display: flex;
-  flex-direction: column;
-  width: 80%;
-}
-
 .form .title-section,
 .form .author-section {
   height: 36px;
@@ -209,10 +212,6 @@ input[type="text"] {
 .contact-info ul {
   margin: 20px;
   margin-left: 15px;
-}
-
-.contact-info ul li {
-  font-size: 14px;
 }
 
 .show {
