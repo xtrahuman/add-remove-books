@@ -1,19 +1,298 @@
-.awesome-books {
+*,
+*::before,
+*::after {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+body {
+  background-color: #eff6fb;
+  color: #081621;
+  font-family: "Roboto", sans-serif;
+  position: relative;
+  height: 100vh;
+}
+
+header {
+  display: flex;
+  justify-content: center;
+}
+
+.navbar {
+  position: relative;
+  display: flex;
+  background-color: #fff;
+  margin-top: 20px;
+  margin-bottom: 40px;
+  padding: 15px 0;
+  border-radius: 5px;
+  align-items: center;
+}
+
+.navbar a {
+  font-size: 14px;
+  text-decoration: none;
+  color: #081621;
+}
+
+.navbar > a {
   margin-left: 20px;
+  font-size: 16px;
+  font-weight: 400;
 }
 
-.author-title .btn {
-  border: 1px solid black;
-  padding: 0 5px;
-  background-color: #f7f7f7;
+.navbar ul {
+  align-items: center;
+  margin: 0 20px;
 }
 
-.form .btn {
-  border: 1px solid black;
+.navbar ul li {
+  border-right: 1px solid #272a31;
   padding: 0 5px;
-  background-color: #f7f7f7;
 }
 
 .form ul li {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+}
+
+.contact-info ul li {
+  font-size: 14px;
+}
+
+.navbar ul li:last-child {
+  border-right: none;
+  padding-right: 0;
+}
+
+.date-time {
+  position: absolute;
+  right: 0;
+  bottom: -40px;
+  font-size: 10px;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.container {
+  width: 90%;
+}
+
+button {
+  margin: 0;
+  padding: 0;
+}
+
+.awesome-page {
+  display: block;
+}
+
+.awesome-books h1 {
+  font-size: 32px;
+  text-align: center;
+}
+
+.book-section {
+  background-color: #fff;
+  border-radius: 5px;
+  margin: 40px 0;
+  filter: drop-shadow(0 8px 16px rgb(74, 156, 211, 0.48));
+}
+
+.author-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+}
+
+.author-title-name > p {
+  margin-right: 10px;
+}
+
+.author-title-name p {
+  margin-bottom: 0;
+  margin-left: 20px;
+  font-size: 14px;
+}
+
+.author-title .remove {
+  border-radius: 5px;
+  padding: 5px 10px;
+  background-color: #cf2e2e;
+  color: #fff;
+  margin-right: 20px;
+  font-size: 14px;
+}
+
+.author-title:nth-child(odd) {
+  background-color: #f7f7f7;
+}
+
+button:hover.remove {
+  background-color: #902020;
+}
+
+.form-sect {
+  display: none;
+  margin-top: 0;
+  width: 100%;
+  flex-direction: column;
+  text-align: center;
+}
+
+.form-sect h2 {
+  margin-bottom: 30px;
+}
+
+.form .btn {
+  border-radius: 5px;
+  padding: 10px 15px;
+  font-size: 14px;
+  background: #2e76cf;
+  color: #fff;
+  margin-top: 20px;
+}
+
+.button-flex {
+  display: flex;
+  justify-content: right;
+}
+
+button:hover.add {
+  background-color: #173b67;
+}
+
+.form {
+  display: flex;
+  justify-content: center;
+}
+
+.form ul {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.form .title-section,
+.form .author-section {
+  height: 36px;
+  margin-top: 5px;
+}
+
+input[type="text"] {
+  font-size: 14px;
+  padding: 10px;
+}
+
+.contact-info {
+  display: none;
+  flex-direction: column;
+}
+
+.contact-info h2 {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.contact-info p {
+  margin-bottom: 0;
+}
+
+.contact-info ul {
+  margin: 20px;
+  margin-left: 15px;
+}
+
+.show {
+  display: flex;
+}
+
+.close {
+  display: none;
+}
+
+#Author {
+  width: 100%;
+}
+
+#Title {
+  width: 100%;
+}
+
+.footer {
+  position: absolute;
+  display: flex;
+  background-color: #fff;
   margin-bottom: 20px;
+  padding: 20px 0;
+  border-radius: 5px;
+  align-items: center;
+  bottom: 0;
+}
+
+.footer p {
+  margin: 0;
+  margin-left: 30px;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+@media all and (min-width: 768px) {
+  main .container {
+    width: 50%;
+  }
+
+  .navbar a {
+    font-size: 16px;
+  }
+
+  .navbar > a {
+    margin-left: 30px;
+    font-size: 20px;
+    font-weight: 500;
+  }
+
+  .navbar ul {
+    align-items: center;
+    margin: 0 30px;
+  }
+
+  .navbar ul li {
+    border-right: 1px solid #272a31;
+    padding: 0 20px;
+  }
+
+  .date-time {
+    font-size: 12px;
+  }
+
+  .form .title-section,
+  .form .author-section {
+    margin-top: 10px;
+    height: 48px;
+  }
+
+  .form ul li {
+    width: 60%;
+  }
+
+  .contact-info p {
+    margin-bottom: 0;
+    margin-left: 40px;
+  }
+
+  .contact-info ul {
+    margin-left: 80px;
+  }
 }
