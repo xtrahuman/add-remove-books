@@ -23,6 +23,13 @@ class Bookinfo {
       localStorage.setItem('bookar', JSON.stringify(allbook));
     };
 
+    checkbooks = (allbook) => {
+      if (allbook.length === 0) bookSection.innerHTML = '<p class="no-book">no book in here <br> kindly add some books</p>';
+      else {
+        bookSection.innerHTML = allbook.join('');
+      }
+    }
+
     displayBooks = (bookoutput) => {
       const allbook = bookoutput.map((book) => `<div class="author-title">
       <div class="d-flex author-title-name">
@@ -32,13 +39,13 @@ class Bookinfo {
    
 </div>`);
 
-      bookSection.innerHTML = allbook.join('');
+      this.checkbooks(allbook);
 
       const removebtn = document.querySelectorAll('.remove');
-
       removebtn.forEach((button, index) => {
         button.addEventListener('click', (e) => {
           e.preventDefault();
+
           this.FilterBookHtml(bookoutput, index);
         });
       });
@@ -47,16 +54,15 @@ class Bookinfo {
       titleInput.value = '';
     };
 }
+
 window.addEventListener('DOMContentLoaded', () => {
   let Booky = new Bookinfo(authorInput.value, titleInput.value);
-
   Booky.displayBooks(Booky.getLocalStorage());
   bookInput.addEventListener('submit', () => {
     Booky = new Bookinfo(authorInput.value, titleInput.value);
     const bookar = Booky.getLocalStorage();
     bookar.push(Booky);
     localStorage.setItem('bookar', JSON.stringify(bookar));
-
     Booky.displayBooks(Booky.getLocalStorage());
   });
 });

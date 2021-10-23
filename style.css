@@ -101,11 +101,20 @@ button {
   text-align: center;
 }
 
+.no-book {
+  color: #cf2e2e;
+  text-align: center;
+  margin-top: 40px;
+}
+
 .book-section {
   background-color: #fff;
   border-radius: 5px;
   margin: 40px 0;
   filter: drop-shadow(0 8px 16px rgb(74, 156, 211, 0.48));
+  height: 42vh;
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 
 .author-title {
@@ -231,13 +240,13 @@ input[type="text"] {
 }
 
 .footer {
-  position: absolute;
   display: flex;
   background-color: #fff;
   margin-bottom: 20px;
   padding: 20px 0;
   border-radius: 5px;
   align-items: center;
+  position: absolute;
   bottom: 0;
 }
 
